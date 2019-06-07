@@ -15,6 +15,30 @@ let numbers = Array.from(buttons).filter((button) => {
     }
 
 })
+let divs = Array.from(document.firstElementChild.children[1].children).filter(element => element.tagName === 'DIV')
 
-console.log(numbers)
-console.log(operators)
+// hack
+divs[4].lastElementChild.previousElementSibling
+
+//create AC button
+let acButton = document.createElement('button')
+
+let body = display.parentElement.parentElement //body
+
+acButton.innerText = 'AC'
+// console.log(acButton)
+
+let displayParent = display.parentElement
+displayParent.append(acButton)
+
+
+// console.log(numbers)
+// console.log(operators)
+
+let dotButton = document.createElement('button')
+dotButton.innerText = '.'
+
+let lastRowButtons = document.lastElementChild.lastElementChild.children[4]
+let plusButton = lastRowButtons.children[1]
+lastRowButtons.insertBefore(dotButton, plusButton)
+
