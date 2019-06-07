@@ -73,6 +73,28 @@ numbers.forEach((button) => {
     })
 })
 
+operators.forEach((operator) => {
+    operator.addEventListener('click', (event) =>{
+        const operator = event.target.innerText
+        let displayValue = display.value
+        const arrayOfOperators = ['+','-','/','*','=']
+        
+        if (operator === '='){
+            displayValue = eval(display.value)
+        }
+        
+        const hasOperator = arrayOfOperators.some(opr=> {
+            return displayValue.includes(opr)
+        })
+        if (hasOperator){
+            return
+        }
+        else{
+            display.value = display.value + ' ' + operator + ' '
+        }
+    })
+})
+
 acButton.addEventListener('click', (event) => {
     display.value = ''
     })
