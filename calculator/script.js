@@ -1,3 +1,5 @@
+
+
 let display = document.getElementById("display")
 display.disabled = true
 let operators = document.getElementsByClassName('operator')
@@ -20,16 +22,23 @@ let divs = Array.from(document.firstElementChild.children[1].children).filter(el
 // hack
 divs[4].lastElementChild.previousElementSibling
 
+
+function addElement(element,text,target){
+    let  htmlElement = document.createElement(element)
+    htmlElement.innerText = text
+    target.append(htmlElement)
+}
+
+
+
+
+
+
 //create AC button
-let acButton = document.createElement('button')
-
-let body = display.parentElement.parentElement //body
-
-acButton.innerText = 'AC'
 // console.log(acButton)
 
 let displayParent = display.parentElement
-displayParent.append(acButton)
+
 
 
 // console.log(numbers)
@@ -38,11 +47,16 @@ displayParent.append(acButton)
 let dotButton = document.createElement('button')
 dotButton.innerText = '.'
 
+addElement('button','AC', displayParent)
+
+
+// add dot button
+
 let lastRowButtons = document.lastElementChild.lastElementChild.children[4]
 let plusButton = lastRowButtons.children[1]
 // two methods equal
-lastRowButtons.insertBefore(dotButton, plusButton)
+// lastRowButtons.insertBefore(dotButton, plusButton)
 // plusButton.before(dotButton)
 // lastRowButtons.appendChild(dotButton)
 
-
+addElement('button', '.', plusButton.parentNode)
