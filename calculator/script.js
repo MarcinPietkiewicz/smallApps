@@ -40,5 +40,9 @@ dotButton.innerText = '.'
 
 let lastRowButtons = document.lastElementChild.lastElementChild.children[4]
 let plusButton = lastRowButtons.children[1]
+// two methods equal
 lastRowButtons.insertBefore(dotButton, plusButton)
+// plusButton.before(dotButton)
+// lastRowButtons.appendChild(dotButton)
+
 
