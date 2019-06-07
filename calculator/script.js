@@ -33,19 +33,14 @@ function addElement(element,text,target){
     let  htmlElement = document.createElement(element)
     htmlElement.innerText = text
     target.append(htmlElement)
+    return htmlElement;
 }
-
-
-
-
-
+// let acButton = addElement('button', 'AC', display)
 
 //create AC button
 // console.log(acButton)
 
 let displayParent = display.parentElement
-
-
 
 // console.log(numbers)
 // console.log(operators)
@@ -53,9 +48,7 @@ let displayParent = display.parentElement
 let dotButton = document.createElement('button')
 dotButton.innerText = '.'
 
-addElement('button','AC', displayParent)
-
-
+let acButton = addElement('button','AC', displayParent)
 
 // add dot button
 
@@ -76,6 +69,10 @@ buttons = Array.from(buttons)
 numbers.forEach((button) => {
     button.addEventListener('click', (event) => {
         const number = event.target.innerText
-        display.value = 'display.value + number'
+        display.value = display.value + number
     })
 })
+
+acButton.addEventListener('click', (event) => {
+    display.value = ''
+    })
