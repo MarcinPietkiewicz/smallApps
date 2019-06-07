@@ -2,6 +2,12 @@
 
 let display = document.getElementById("display")
 display.disabled = true
+
+// display.addEventListener('click', (event) => {
+//     event.preventDefault()
+//     alert('Hello!')
+// })
+
 let operators = document.getElementsByClassName('operator')
 operators = Array.from(operators)
 
@@ -50,6 +56,7 @@ dotButton.innerText = '.'
 addElement('button','AC', displayParent)
 
 
+
 // add dot button
 
 let lastRowButtons = document.lastElementChild.lastElementChild.children[4]
@@ -60,3 +67,15 @@ let plusButton = lastRowButtons.children[1]
 // lastRowButtons.appendChild(dotButton)
 
 addElement('button', '.', plusButton.parentNode)
+
+// logic for buttons
+
+buttons = document.getElementsByTagName('button')
+buttons = Array.from(buttons)
+
+numbers.forEach((button) => {
+    button.addEventListener('click', (event) => {
+        const number = event.target.innerText
+        display.value = 'display.value + number'
+    })
+})
